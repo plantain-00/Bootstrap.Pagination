@@ -1,0 +1,35 @@
+﻿@using Bootstrap.Pagination
+<div style="text-align: center">
+    <ul class="pagination">
+        @{
+            var pagination = ViewData["pagination"] as Pagination;
+            if (pagination.IsFirstGroup())
+            {
+                <li class="disabled"><span>«</span></li>
+            }
+            else
+            {
+                <li><a href="?page=@pagination.PagesPerGroup&group=@(pagination.Group - 1)">«</a></li>
+            }
+            for (var i = 0; i < pagination.GetCurrentPageCount(); i++)
+            {
+                if (pagination.IsCurrentPage(i))
+                {
+                    <li class="active"><span>@pagination.GetPageIndex(i)</span></li>
+                }
+                else
+                {
+                    <li><a href="?page=@(i + 1)&group=@pagination.Group">@pagination.GetPageIndex(i)</a></li>
+                }
+            }
+            if (pagination.IsLastGroup())
+            {
+                <li class="disabled"><span>»</span></li>
+            }
+            else
+            {
+                <li><a href="?page=1&group=@(pagination.Group + 1)">»</a></li>
+            }
+        }
+    </ul>
+</div>
