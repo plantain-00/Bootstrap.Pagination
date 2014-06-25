@@ -1,8 +1,9 @@
-﻿<div style="text-align: center">
+﻿@using Bootstrap.Pagination
+<div style="text-align: center">
     <ul class="pager">
         @{
             var pager = ViewData["pager"] as Pager;
-            if (pager.IsFirstPage())
+            if (pager.IsFirstPage)
             {
                 <li class="disabled"><span>← 上一页</span></li>
             }
@@ -10,7 +11,7 @@
             {
                 <li><a href="?page=@(pager.Page - 1)">← 上一页</a></li>
             }
-            if (pager.IsLastPage())
+            if (pager.IsLastPage)
             {
                 <li class="disabled"><span>下一页 →</span></li>
             }

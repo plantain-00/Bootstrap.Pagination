@@ -49,20 +49,48 @@
         /// </summary>
         public int Group { get; private set; }
         /// <summary>
+        ///     当前页中，由从0开始的条的索引
+        /// </summary>
+        /// <returns></returns>
+        public int ItemIndex
+        {
+            get
+            {
+                return _itemsPerPage * (Page - 1 + _pagesPerGroup * (Group - 1));
+            }
+        }
+        /// <summary>
         ///     是否是第一组
         /// </summary>
         /// <returns></returns>
-        public bool IsFirstGroup()
+        public bool IsFirstGroup
         {
-            return Group == 1;
+            get
+            {
+                return Group == 1;
+            }
         }
         /// <summary>
         ///     是否是最后一组
         /// </summary>
         /// <returns></returns>
-        public bool IsLastGroup()
+        public bool IsLastGroup
         {
-            return Group == _groupCount;
+            get
+            {
+                return Group == _groupCount;
+            }
+        }
+        /// <summary>
+        ///     当前组的页数
+        /// </summary>
+        /// <returns></returns>
+        public int CurrentPageCount
+        {
+            get
+            {
+                return IsLastGroup ? _pageCount : PagesPerGroup;
+            }
         }
         /// <summary>
         ///     由当前组中页从0开始的索引，获得实际表示的页
@@ -83,14 +111,6 @@
             return item + 1 + _itemsPerPage * (Page - 1 + _pagesPerGroup * (Group - 1));
         }
         /// <summary>
-        ///     当前组的页数
-        /// </summary>
-        /// <returns></returns>
-        public int GetCurrentPageCount()
-        {
-            return IsLastGroup() ? _pageCount : PagesPerGroup;
-        }
-        /// <summary>
         ///     从0开始的页的索引是否是当前页
         /// </summary>
         /// <param name="page"></param>
@@ -98,15 +118,6 @@
         public bool IsCurrentPage(int page)
         {
             return page + 1 == Page;
-        }
-        /// <summary>
-        ///     由从0开始的条的索引,获得之前需要Skip的条数
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        public int Skip(int item)
-        {
-            return item + _itemsPerPage * (Page - 1 + _pagesPerGroup * (Group - 1));
         }
     }
 }

@@ -3,7 +3,7 @@
     <ul class="pagination">
         @{
             var pagination = ViewData["pagination"] as Pagination;
-            if (pagination.IsFirstGroup())
+            if (pagination.IsFirstGroup)
             {
                 <li class="disabled"><span>«</span></li>
             }
@@ -11,7 +11,7 @@
             {
                 <li><a href="?page=@pagination.PagesPerGroup&group=@(pagination.Group - 1)">«</a></li>
             }
-            for (var i = 0; i < pagination.GetCurrentPageCount(); i++)
+            for (var i = 0; i < pagination.CurrentPageCount; i++)
             {
                 if (pagination.IsCurrentPage(i))
                 {
@@ -22,7 +22,7 @@
                     <li><a href="?page=@(i + 1)&group=@pagination.Group">@pagination.GetPageIndex(i)</a></li>
                 }
             }
-            if (pagination.IsLastGroup())
+            if (pagination.IsLastGroup)
             {
                 <li class="disabled"><span>»</span></li>
             }
