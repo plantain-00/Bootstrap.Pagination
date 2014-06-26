@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net40", "Bootstrap.Pagination.net40\Bootstrap.Pagination.net40.csproj", "{424218C6-1101-4709-93A9-3A6A972A1837}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.Example.net40", "Bootstrap.Pagination.Example.net40\Bootstrap.Pagination.Example.net40.csproj", "{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net45", "Bootstrap.Pagination.net45\Bootstrap.Pagination.net45.csproj", "{11978C1D-E440-41F5-9F55-186BFE284DF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,10 @@ Global
 		{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11978C1D-E440-41F5-9F55-186BFE284DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11978C1D-E440-41F5-9F55-186BFE284DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11978C1D-E440-41F5-9F55-186BFE284DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11978C1D-E440-41F5-9F55-186BFE284DF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
