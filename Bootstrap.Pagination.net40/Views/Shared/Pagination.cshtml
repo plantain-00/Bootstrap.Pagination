@@ -3,13 +3,14 @@
     <ul class="pagination">
         @{
             var pagination = ViewData["pagination"] as Pagination;
+            var url = ViewData["url"] as string;
             if (pagination.IsFirstGroup)
             {
                 <li class="disabled"><span>«</span></li>
             }
             else
             {
-                <li><a href="?page=@pagination.PagesPerGroup&group=@(pagination.Group - 1)">«</a></li>
+                <li><a href="@(url)page=@pagination.PagesPerGroup&group=@(pagination.Group - 1)">«</a></li>
             }
             for (var i = 0; i < pagination.CurrentPageCount; i++)
             {
@@ -19,7 +20,7 @@
                 }
                 else
                 {
-                    <li><a href="?page=@(i + 1)&group=@pagination.Group">@pagination.GetPageIndex(i)</a></li>
+                    <li><a href="@(url)page=@(i + 1)&group=@pagination.Group">@pagination.GetPageIndex(i)</a></li>
                 }
             }
             if (pagination.IsLastGroup)
@@ -28,7 +29,7 @@
             }
             else
             {
-                <li><a href="?page=1&group=@(pagination.Group + 1)">»</a></li>
+                <li><a href="@(url)page=1&group=@(pagination.Group + 1)">»</a></li>
             }
         }
     </ul>

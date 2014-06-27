@@ -19,6 +19,7 @@ namespace Bootstrap.Pagination.Example.net40.Controllers
             var pagination = new Pagination(123, page, group, 5, 10);
             ViewData["pagination"] = pagination;
             ViewData["data"] = list.Skip(pagination.ItemIndex).Take(10).ToArray();
+            ViewData["url"] = "?";
             return View();
         }
 
@@ -33,6 +34,7 @@ namespace Bootstrap.Pagination.Example.net40.Controllers
             var pager = new Pager(123, page, 10);
             ViewData["pager"] = pager;
             ViewData["data"] = list.Skip(pager.ItemIndex).Take(10).ToArray();
+            ViewData["url"] = "?";
             return View();
         }
     }

@@ -26,6 +26,7 @@ pagination
         }
     </ul>
     @Html.Partial("Pagination")
+![](/images/Pagination-Example.JPG)
 
 pager
 --------------------
@@ -51,5 +52,7 @@ pager
         }
     </ul>
     @Html.Partial("Pager")
+
+![](/images/Pager-Example.JPG)
 
 You can get [it](https://www.nuget.org/packages/Bootstrap.Pagination) from Nuget.

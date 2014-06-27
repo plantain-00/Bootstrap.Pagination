@@ -3,13 +3,14 @@
     <ul class="pager">
         @{
             var pager = ViewData["pager"] as Pager;
+            var url = ViewData["url"] as string;
             if (pager.IsFirstPage)
             {
                 <li class="disabled"><span>← 上一页</span></li>
             }
             else
             {
-                <li><a href="?page=@(pager.Page - 1)">← 上一页</a></li>
+                <li><a href="@(url)page=@(pager.Page - 1)">← 上一页</a></li>
             }
             if (pager.IsLastPage)
             {
@@ -17,7 +18,7 @@
             }
             else
             {
-                <li><a href="?page=@(pager.Page + 1)">下一页 →</a></li>
+                <li><a href="@(url)page=@(pager.Page + 1)">下一页 →</a></li>
             }
         }
     </ul>
