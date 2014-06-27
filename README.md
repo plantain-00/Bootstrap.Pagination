@@ -14,6 +14,7 @@ pagination
     var pagination = new Pagination(123, page, group, 5, 10);
     ViewData["pagination"] = pagination;
     ViewData["data"] = list.Skip(pagination.ItemIndex).Take(10).ToArray();
+    ViewData["url"] = "?";
     return View();
 ### View
         @{
@@ -40,6 +41,7 @@ pager
     var pager = new Pager(123, page, 10);
     ViewData["pager"] = pager;
     ViewData["data"] = list.Skip(pager.ItemIndex).Take(10).ToArray();
+    ViewData["url"] = "?";
     return View();
 ### View
         @{
@@ -55,4 +57,5 @@ pager
 
 ![](/images/Pager-Example.JPG)
 
+## nuget
 You can get [it](https://www.nuget.org/packages/Bootstrap.Pagination) from Nuget.
