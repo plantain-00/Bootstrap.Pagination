@@ -17,7 +17,7 @@ pagination
     ViewData["url"] = "?";
     return View();
 ### View
-        @{
+    @{
         var data = ViewData["data"] as int[];
     }
     <ul>
@@ -44,7 +44,7 @@ pager
     ViewData["url"] = "?";
     return View();
 ### View
-        @{
+    @{
         var data = ViewData["data"] as int[];
     }
     <ul>
