@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net30"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net20", "Bootstrap.Pagination.net20\Bootstrap.Pagination.net20.csproj", "{FEC84414-1481-41A8-99F4-ACE8337E947A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.Example.net35", "Bootstrap.Pagination.Example.net35\Bootstrap.Pagination.Example.net35.csproj", "{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{FEC84414-1481-41A8-99F4-ACE8337E947A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEC84414-1481-41A8-99F4-ACE8337E947A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEC84414-1481-41A8-99F4-ACE8337E947A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

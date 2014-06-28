@@ -36,16 +36,25 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Bootstrap.Pagination.net40\HttpRequestBaseHelper.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Pager.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Pagination.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UcPager.ascx.cs">
+      <DependentUpon>UcPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcPagination.ascx.cs">
+      <DependentUpon>UcPagination.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="UserControls\UcPager.ascx" />
+    <Content Include="UserControls\UcPagination.ascx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
