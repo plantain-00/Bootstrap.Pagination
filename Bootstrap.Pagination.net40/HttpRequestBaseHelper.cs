@@ -1,5 +1,7 @@
-﻿using System;
+﻿#if !NET35 && !NET30 && !NET20
+using System;
 using System.Linq;
+#endif
 using System.Web;
 
 namespace Bootstrap.Pagination
@@ -9,6 +11,7 @@ namespace Bootstrap.Pagination
     /// </summary>
     public static class HttpRequestBaseHelper
     {
+#if !NET35 && !NET30 && !NET20
         /// <summary>
         ///     由key查询Guid
         /// </summary>
@@ -30,13 +33,20 @@ namespace Bootstrap.Pagination
             var id = request.QueryString[key];
             return string.IsNullOrEmpty(id) ? null as Guid? : Guid.Parse(id);
         }
+#endif
         /// <summary>
         ///     由key查询string
         /// </summary>
         /// <param name="request"></param>
         /// <param name="key"></param>
         /// <returns></returns>
+#if NET35
+        public static string QueryString(this HttpRequest request, string key)
+#elif NET30 || NET20
+        public static string QueryString(HttpRequest request, string key)
+#else
         public static string QueryString(this HttpRequestBase request, string key)
+#endif
         {
             return request.QueryString[key];
         }
@@ -47,7 +57,13 @@ namespace Bootstrap.Pagination
         /// <param name="key"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
+#if NET35
+        public static int QueryInt32(this HttpRequest request, string key, int defaultValue = 1)
+#elif NET30 || NET20
+        public static int QueryInt32(HttpRequest request, string key, int defaultValue = 1)
+#else
         public static int QueryInt32(this HttpRequestBase request, string key, int defaultValue = 1)
+#endif
         {
             if (string.IsNullOrEmpty(key))
             {
@@ -56,6 +72,7 @@ namespace Bootstrap.Pagination
             int result;
             return int.TryParse(request.QueryString[key], out result) ? result : defaultValue;
         }
+#if !NET35 && !NET30 && !NET20
         /// <summary>
         ///     由key查询按divider字符分隔的Guid[]
         /// </summary>
@@ -67,5 +84,6 @@ namespace Bootstrap.Pagination
         {
             return request.QueryString[key].TrimEnd(divider).Split(divider).Select(Guid.Parse).ToArray();
         }
+#endif
     }
 }
