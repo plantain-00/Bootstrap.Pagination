@@ -1,0 +1,9 @@
+﻿@{
+    var data = ViewData["data"] as int[];
+}
+<ul data-bind="foreach:data">
+    @for (var i = 0; i < data.Length; i++)
+    {
+        <li>@data[i]</li>
+    }
+</ul>

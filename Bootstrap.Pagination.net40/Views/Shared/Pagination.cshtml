@@ -10,7 +10,7 @@
             }
             else
             {
-                <li><a href="@(url)page=@pagination.PagesPerGroup&group=@(pagination.Group - 1)">«</a></li>
+                <li><a onclick="navigateTo(@pagination.PagesPerGroup,@(pagination.Group - 1))" href="javascript:void(0);">«</a></li>
             }
             for (var i = 0; i < pagination.CurrentPageCount; i++)
             {
@@ -20,7 +20,7 @@
                 }
                 else
                 {
-                    <li><a href="@(url)page=@(i + 1)&group=@pagination.Group">@pagination.GetPageIndex(i)</a></li>
+                    <li><a onclick="navigateTo(@(i + 1),@pagination.Group);" href="javascript:void(0);">@pagination.GetPageIndex(i)</a></li>
                 }
             }
             if (pagination.IsLastGroup)
@@ -29,7 +29,7 @@
             }
             else
             {
-                <li><a href="@(url)page=1&group=@(pagination.Group + 1)">»</a></li>
+                <li><a onclick="navigateTo(1,@(pagination.Group + 1));" href="javascript:void(0);">»</a></li>
             }
         }
     </ul>

@@ -10,7 +10,7 @@
             }
             else
             {
-                <li><a href="@(url)page=@(pager.Page - 1)">← 上一页</a></li>
+                <li><a onclick="navigateTo(@(pager.Page - 1));" href="javascript:void(0);">← 上一页</a></li>
             }
             if (pager.IsLastPage)
             {
@@ -18,7 +18,7 @@
             }
             else
             {
-                <li><a href="@(url)page=@(pager.Page + 1)">下一页 →</a></li>
+                <li><a onclick="navigateTo(@(pager.Page + 1));" href="javascript:void(0);">下一页 →</a></li>
             }
         }
     </ul>

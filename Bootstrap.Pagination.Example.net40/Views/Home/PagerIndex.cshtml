@@ -15,22 +15,20 @@
         <div id="data">
             @Html.Partial("DataList")
         </div>
-        <div id="pagination">
-            @Html.Partial("Pagination")
+        <div id="pager">
+            @Html.Partial("Pager")
         </div>
         <script src="~/Scripts/jquery-1.9.1.min.js"></script>
         <script src="~/Scripts/bootstrap.min.js"></script>
         <script type="text/javascript">
-            function navigateTo(page, group) {
-                $.get("@Url.Action("GetPagination")", {
-                    page : page,
-                    group : group
+            function navigateTo(page) {
+                $.get("@Url.Action("GetPager")", {
+                    page : page
                 }, function(data) {
-                    $("#pagination").html(data);
+                    $("#pager").html(data);
                 });
-                $.get("@Url.Action("GetPaginationData")", {
-                    page : page,
-                    group : group
+                $.get("@Url.Action("GetPagerData")", {
+                    page : page
                 }, function(data) {
                     $("#data").html(data);
                 });
