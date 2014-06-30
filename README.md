@@ -19,15 +19,17 @@ pagination
         var group = Request.QueryInt32("group");
         var pagination = new Pagination(123, page, group, 5, 10);
         ViewData["pagination"] = pagination;
-        return View("Pagination");
-    }
-    public ActionResult GetPaginationData()
-    {
-        var page = Request.QueryInt32("page");
-        var group = Request.QueryInt32("group");
-        var pagination = new Pagination(123, page, group, 5, 10);
         ViewData["data"] = _list.Skip(pagination.ItemIndex).Take(10).ToArray();
-        return View("DataList");
+        var json = JsonConvert.SerializeObject(new
+                                                {
+                                                    pagination = this.PartialViewToString("Pagination"),
+                                                    data = this.PartialViewToString("DataList")
+                                                });
+        return new JsonResult
+                {
+                    Data = json,
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
     }
 ### View
     <div id="data">
@@ -40,17 +42,13 @@ pagination
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
         function navigateTo(page, group) {
-            $.get("@Url.Action("GetPagination")", {
+            $.getJSON("@Url.Action("GetPagination")", {
                 page : page,
                 group : group
             }, function(data) {
-                $("#pagination").html(data);
-            });
-            $.get("@Url.Action("GetPaginationData")", {
-                page : page,
-                group : group
-            }, function(data) {
-                $("#data").html(data);
+                var json = eval('(' + data + ')');
+                $("#pagination").html(json.pagination);
+                $("#data").html(json.data);
             });
         }
     </script>
@@ -72,14 +70,17 @@ pager
         var page = Request.QueryInt32("page");
         var pager = new Pager(123, page, 10);
         ViewData["pager"] = pager;
-        return View("Pager");
-    }
-    public ActionResult GetPagerData()
-    {
-        var page = Request.QueryInt32("page");
-        var pager = new Pager(123, page, 10);
         ViewData["data"] = _list.Skip(pager.ItemIndex).Take(10).ToArray();
-        return View("DataList");
+        var json = JsonConvert.SerializeObject(new
+                                                {
+                                                    pager = this.PartialViewToString("Pager"),
+                                                    data = this.PartialViewToString("DataList")
+                                                });
+        return new JsonResult
+                {
+                    Data = json,
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
     }
 ### View
     <div id="data">
@@ -92,15 +93,12 @@ pager
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
         function navigateTo(page) {
-            $.get("@Url.Action("GetPager")", {
+            $.getJSON("@Url.Action("GetPager")", {
                 page : page
             }, function(data) {
-                $("#pager").html(data);
-            });
-            $.get("@Url.Action("GetPagerData")", {
-                page : page
-            }, function(data) {
-                $("#data").html(data);
+                var json = eval('(' + data + ')');
+                $("#pager").html(json.pager);
+                $("#data").html(json.data);
             });
         }
     </script>
