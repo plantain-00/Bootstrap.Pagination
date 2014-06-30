@@ -22,15 +22,12 @@
         <script src="~/Scripts/bootstrap.min.js"></script>
         <script type="text/javascript">
             function navigateTo(page) {
-                $.get("@Url.Action("GetPager")", {
+                $.getJSON("@Url.Action("GetPager")", {
                     page : page
                 }, function(data) {
-                    $("#pager").html(data);
-                });
-                $.get("@Url.Action("GetPagerData")", {
-                    page : page
-                }, function(data) {
-                    $("#data").html(data);
+                    var json = eval('(' + data + ')');
+                    $("#pager").html(json.pager);
+                    $("#data").html(json.data);
                 });
             }
         </script>

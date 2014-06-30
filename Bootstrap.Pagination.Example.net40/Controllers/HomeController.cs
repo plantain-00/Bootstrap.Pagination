@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 
+using Newtonsoft.Json;
+
 namespace Bootstrap.Pagination.Example.net40.Controllers
 {
     public class HomeController : Controller
@@ -29,15 +31,17 @@ namespace Bootstrap.Pagination.Example.net40.Controllers
             var group = Request.QueryInt32("group");
             var pagination = new Pagination(123, page, group, 5, 10);
             ViewData["pagination"] = pagination;
-            return View("Pagination");
-        }
-        public ActionResult GetPaginationData()
-        {
-            var page = Request.QueryInt32("page");
-            var group = Request.QueryInt32("group");
-            var pagination = new Pagination(123, page, group, 5, 10);
             ViewData["data"] = _list.Skip(pagination.ItemIndex).Take(10).ToArray();
-            return View("DataList");
+            var json = JsonConvert.SerializeObject(new
+                                                   {
+                                                       pagination = this.PartialViewToString("Pagination"),
+                                                       data = this.PartialViewToString("DataList")
+                                                   });
+            return new JsonResult
+                   {
+                       Data = json,
+                       JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                   };
         }
         public ActionResult PagerIndex()
         {
@@ -52,14 +56,17 @@ namespace Bootstrap.Pagination.Example.net40.Controllers
             var page = Request.QueryInt32("page");
             var pager = new Pager(123, page, 10);
             ViewData["pager"] = pager;
-            return View("Pager");
-        }
-        public ActionResult GetPagerData()
-        {
-            var page = Request.QueryInt32("page");
-            var pager = new Pager(123, page, 10);
             ViewData["data"] = _list.Skip(pager.ItemIndex).Take(10).ToArray();
-            return View("DataList");
+            var json = JsonConvert.SerializeObject(new
+                                                   {
+                                                       pager = this.PartialViewToString("Pager"),
+                                                       data = this.PartialViewToString("DataList")
+                                                   });
+            return new JsonResult
+                   {
+                       Data = json,
+                       JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                   };
         }
     }
 }

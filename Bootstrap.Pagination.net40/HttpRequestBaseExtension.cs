@@ -9,7 +9,7 @@ namespace Bootstrap.Pagination
     /// <summary>
     ///     定义了HttpRequestBase对象的扩展方法
     /// </summary>
-    public static class HttpRequestBaseHelper
+    public static class HttpRequestBaseExtension
     {
 #if !NET35 && !NET30 && !NET20
         /// <summary>

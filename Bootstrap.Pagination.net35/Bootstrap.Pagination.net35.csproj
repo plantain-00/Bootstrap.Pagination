@@ -38,7 +38,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Bootstrap.Pagination.net40\HttpRequestBaseHelper.cs" />
+    <Compile Include="..\Bootstrap.Pagination.net40\HttpRequestBaseExtension.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Pager.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Pagination.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Properties\AssemblyInfo.cs" />
