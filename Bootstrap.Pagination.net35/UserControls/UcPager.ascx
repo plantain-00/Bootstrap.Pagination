@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UcPager.ascx.cs" Inherits="Bootstrap.Pagination.Example.net35.UserControls.UcPager" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UcPager.ascx.cs" Inherits="Bootstrap.Pagination.UserControls.UcPager" %>
 <ul class="pager">
     <% if (pager.IsFirstPage)
        { %>

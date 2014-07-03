@@ -53,8 +53,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="UserControls\UcPager.ascx" />
-    <Content Include="UserControls\UcPagination.ascx" />
+    <None Include="UserControls\UcPager.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="UserControls\UcPagination.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

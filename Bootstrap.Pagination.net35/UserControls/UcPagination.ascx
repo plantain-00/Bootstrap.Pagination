@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UcPagination.ascx.cs" Inherits="Bootstrap.Pagination.Example.net35.UserControls.UcPagination" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UcPagination.ascx.cs" Inherits="Bootstrap.Pagination.UserControls.UcPagination" %>
 <div style="text-align: center">
     <ul class="pagination">
         <% if (pagination.IsFirstGroup)

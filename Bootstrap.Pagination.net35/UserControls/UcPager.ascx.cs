@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 
-namespace Bootstrap.Pagination.Example.net35.UserControls
+namespace Bootstrap.Pagination.UserControls
 {
     public partial class UcPager : UserControl
     {
