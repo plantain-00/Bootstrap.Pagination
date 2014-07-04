@@ -45,6 +45,16 @@ namespace Bootstrap.Pagination
 #elif NET30 || NET20
         public static string QueryString(HttpRequest request, string key)
 #else
+        public static string QueryString(this HttpRequest request, string key)
+        {
+            return request.QueryString[key];
+        }
+        /// <summary>
+        ///     由key查询string
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static string QueryString(this HttpRequestBase request, string key)
 #endif
         {
@@ -62,6 +72,22 @@ namespace Bootstrap.Pagination
 #elif NET30 || NET20
         public static int QueryInt32(HttpRequest request, string key, int defaultValue = 1)
 #else
+        public static int QueryInt32(this HttpRequest request, string key, int defaultValue = 1)
+        {
+            if (string.IsNullOrEmpty(key))
+            {
+                return defaultValue;
+            }
+            int result;
+            return int.TryParse(request.QueryString[key], out result) ? result : defaultValue;
+        }
+        /// <summary>
+        ///     由key查询int，如果为空，或者无效，返回指定的默认值，或者1
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="key"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
         public static int QueryInt32(this HttpRequestBase request, string key, int defaultValue = 1)
 #endif
         {
