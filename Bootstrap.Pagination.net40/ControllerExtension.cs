@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using System.Web.Mvc;
 
 namespace Bootstrap.Pagination
@@ -39,6 +40,105 @@ namespace Bootstrap.Pagination
                 viewResult.View.Render(viewContext, stringWriter);
                 return stringWriter.GetStringBuilder().ToString();
             }
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, object obj)
+        {
+            return NewtonJson(controller, null, null, JsonRequestBehavior.DenyGet, obj);
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="encoding"></param>
+        /// <param name="contentType"></param>
+        /// <param name="jsonRequestBehavior"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, Encoding encoding, string contentType, JsonRequestBehavior jsonRequestBehavior, object obj)
+        {
+            return new NewtonJsonResult
+                   {
+                       ContentEncoding = encoding,
+                       ContentType = contentType,
+                       JsonRequestBehavior = jsonRequestBehavior,
+                       Data = obj
+                   };
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="obj"></param>
+        /// <param name="jsonRequestBehavior"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, object obj, JsonRequestBehavior jsonRequestBehavior)
+        {
+            return NewtonJson(controller, null, null, jsonRequestBehavior, obj);
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="obj"></param>
+        /// <param name="encoding"></param>
+        /// <param name="jsonRequestBehavior"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, object obj, Encoding encoding, JsonRequestBehavior jsonRequestBehavior)
+        {
+            return NewtonJson(controller, encoding, null, jsonRequestBehavior, obj);
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="obj"></param>
+        /// <param name="contentType"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, object obj, string contentType)
+        {
+            return NewtonJson(controller, null, contentType, JsonRequestBehavior.DenyGet, obj);
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="obj"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, object obj, Encoding encoding)
+        {
+            return NewtonJson(controller, encoding, null, JsonRequestBehavior.DenyGet, obj);
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="obj"></param>
+        /// <param name="encoding"></param>
+        /// <param name="contentType"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, object obj, Encoding encoding, string contentType)
+        {
+            return NewtonJson(controller, encoding, contentType, JsonRequestBehavior.DenyGet, obj);
+        }
+        /// <summary>
+        ///     Controller.Json的替代
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="obj"></param>
+        /// <param name="encoding"></param>
+        /// <param name="contentType"></param>
+        /// <param name="jsonRequestBehavior"></param>
+        /// <returns></returns>
+        public static ActionResult NewtonJson(this ControllerBase controller, object obj, Encoding encoding, string contentType, JsonRequestBehavior jsonRequestBehavior)
+        {
+            return NewtonJson(controller, encoding, contentType, jsonRequestBehavior, obj);
         }
     }
 }

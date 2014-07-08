@@ -33,6 +33,9 @@
     <DocumentationFile>..\bin\net40\Bootstrap.Pagination.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -46,6 +49,7 @@
     <None Include="Views\Shared\Pager.cshtml" />
     <Compile Include="ControllerExtension.cs" />
     <Compile Include="HttpRequestBaseExtension.cs" />
+    <Compile Include="NewtonJsonResult.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
