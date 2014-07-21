@@ -52,7 +52,7 @@ pagination
             });
         }
     </script>
-![](/images/Pagination-Example.JPG)
+![](https://raw.githubusercontent.com/plantain-00/Bootstrap.Pagination/master/images/Pagination-Example.JPG)
 
 pager
 --------------------
@@ -103,7 +103,7 @@ pager
         }
     </script>
 
-![](/images/Pager-Example.JPG)
+![](https://raw.githubusercontent.com/plantain-00/Bootstrap.Pagination/master/images/Pager-Example.JPG)
 
 ## nuget
 You can get [it](https://www.nuget.org/packages/Bootstrap.Pagination) from Nuget.
