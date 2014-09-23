@@ -3,7 +3,6 @@
     <ul class="pagination">
         @{
             var pagination = ViewData["pagination"] as Pagination;
-            var url = ViewData["url"] as string;
             if (pagination.IsFirstGroup)
             {
                 <li class="disabled"><span>«</span></li>
