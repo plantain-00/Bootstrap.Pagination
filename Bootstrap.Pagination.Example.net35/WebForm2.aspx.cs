@@ -17,7 +17,7 @@ namespace Bootstrap.Pagination.Example.net35
             var page = Request.QueryInt32("page");
             var pager = new Pager(123, page, 10);
             UcPager1.pager = pager;
-            data = list.Skip(pager.ItemIndex).Take(10).ToArray();
+            data = list.Skip(pager.Skipped).Take(10).ToArray();
             UcPager1.url = "?";
         }
     }

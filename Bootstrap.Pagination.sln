@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net40", "Bootstrap.Pagination.net40\Bootstrap.Pagination.net40.csproj", "{424218C6-1101-4709-93A9-3A6A972A1837}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net20", "Bootstrap.Pagination.net20\Bootstrap.Pagination.net20.csproj", "{FEC84414-1481-41A8-99F4-ACE8337E947A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.Example.net35", "Bootstrap.Pagination.Example.net35\Bootstrap.Pagination.Example.net35.csproj", "{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStarted", "QuickStarted\QuickStarted.csproj", "{9D4EBF35-0E4E-4682-B768-453D751675FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4EBF35-0E4E-4682-B768-453D751675FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4EBF35-0E4E-4682-B768-453D751675FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4EBF35-0E4E-4682-B768-453D751675FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4EBF35-0E4E-4682-B768-453D751675FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

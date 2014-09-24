@@ -18,7 +18,7 @@ namespace Bootstrap.Pagination.Example.net35
             var group = Request.QueryInt32("group");
             var pagination = new Pagination(123, page, group, 5, 10);
             UcPagination1.pagination = pagination;
-            data = list.Skip(pagination.ItemIndex).Take(10).ToArray();
+            data = list.Skip(pagination.Skipped).Take(10).ToArray();
             UcPagination1.url = "?";
         }
     }

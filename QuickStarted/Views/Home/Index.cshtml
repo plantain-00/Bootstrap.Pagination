@@ -1,0 +1,19 @@
+﻿<div id="list">
+    @Html.Partial("List")
+</div>
+<script src="~/Scripts/jquery-1.9.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script type="text/javascript">
+    function navigateTo(page) {
+        $.ajax({
+            url : "@Url.Action("List")",
+            data : {
+                page : page
+            },
+            success : function(data) {
+                $("#list").html(data);
+            }
+        });
+    }
+</script>

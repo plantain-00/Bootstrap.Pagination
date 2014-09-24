@@ -1,25 +1,94 @@
 Bootstrap.Pagination
 ====================
 
+Get Started
+--------------------
+
+### HomeController
+
+    private readonly int[] _list;
+
+    public HomeController()
+    {
+        _list = new int[123];
+        for (var i = 0; i < 123; i++)
+        {
+            _list[i] = i + 1;
+        }
+    }
+
+    public ActionResult Index()
+    {
+        var page = Request.QueryInt32("page");
+        var skipped = Pagination.GetSkipped(page);
+        ViewData["pagination"] = new Pagination(_list.Length, page);
+        ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
+        return View();
+    }
+
+    public ActionResult List()
+    {
+        var page = Request.QueryInt32("page");
+        var skipped = Pagination.GetSkipped(page);
+        ViewData["pagination"] = new Pagination(_list.Length, page);
+        ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
+        return View();
+    }
+
+### Index View
+
+    <div id="list">
+        @Html.Partial("List")
+    </div>
+    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function navigateTo(page) {
+            $.ajax({
+                url : "@Url.Action("List")",
+                data : {
+                    page : page
+                },
+                success : function(data) {
+                    $("#list").html(data);
+                }
+            });
+        }
+    </script>
+
+### List View
+
+    @{
+        var data = ViewData["data"] as int[];
+    }
+    <ul>
+        @foreach (var d in data)
+        {
+            <li>@d</li>
+        }
+    </ul>
+    @Html.Partial("Pagination")
+
 pagination
 --------------------
 ### Controller
     public ActionResult Index()
     {
         var page = Request.QueryInt32("page");
-        var group = Request.QueryInt32("group");
-        var pagination = new Pagination(123, page, group, 5, 10);
+        var pagination = new Pagination(123, page);
+        var skipped = Pagination.GetSkipped(page);
         ViewData["pagination"] = pagination;
-        ViewData["data"] = _list.Skip(pagination.ItemIndex).Take(10).ToArray();
+        ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         return View();
     }
     public ActionResult GetPagination()
     {
         var page = Request.QueryInt32("page");
-        var group = Request.QueryInt32("group");
-        var pagination = new Pagination(123, page, group, 5, 10);
+        var skipped = Pagination.GetSkipped(page);
+        var pagination = new Pagination(123, page);
         ViewData["pagination"] = pagination;
-        ViewData["data"] = _list.Skip(pagination.ItemIndex).Take(10).ToArray();
+        ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         var json = JsonConvert.SerializeObject(new
                                                 {
                                                     pagination = this.PartialViewToString("Pagination"),
@@ -43,8 +112,7 @@ pagination
     <script type="text/javascript">
         function navigateTo(page, group) {
             $.getJSON("@Url.Action("GetPagination")", {
-                page : page,
-                group : group
+                page : page
             }, function(data) {
                 var json = eval('(' + data + ')');
                 $("#pagination").html(json.pagination);
@@ -60,17 +128,17 @@ pager
     public ActionResult PagerIndex()
     {
         var page = Request.QueryInt32("page");
-        var pager = new Pager(123, page, 10);
+        var pager = new Pager(123, page);
         ViewData["pager"] = pager;
-        ViewData["data"] = _list.Skip(pager.ItemIndex).Take(10).ToArray();
+        ViewData["data"] = _list.Skip(pager.Skipped).Take(10).ToArray();
         return View();
     }
     public ActionResult GetPager()
     {
         var page = Request.QueryInt32("page");
-        var pager = new Pager(123, page, 10);
+        var pager = new Pager(123, page);
         ViewData["pager"] = pager;
-        ViewData["data"] = _list.Skip(pager.ItemIndex).Take(10).ToArray();
+        ViewData["data"] = _list.Skip(pager.Skipped).Take(10).ToArray();
         var json = JsonConvert.SerializeObject(new
                                                 {
                                                     pager = this.PartialViewToString("Pager"),

@@ -1,0 +1,10 @@
+﻿@{
+    var data = ViewData["data"] as int[];
+}
+<ul>
+    @foreach (var d in data)
+    {
+        <li>@d</li>
+    }
+</ul>
+@Html.Partial("Pagination")
