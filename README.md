@@ -174,4 +174,4 @@ pager
 ![](https://raw.githubusercontent.com/plantain-00/Bootstrap.Pagination/master/images/Pager-Example.JPG)
 
 ## nuget
-You can get [it](https://www.nuget.org/packages/Bootstrap.Pagination) from Nuget.
+You can get [it](https://www.nuget.org/packages/Bootstrap.Pagination) and [MVC](https://www.nuget.org/packages/Bootstrap.Pagination.MVC/) from Nuget.
