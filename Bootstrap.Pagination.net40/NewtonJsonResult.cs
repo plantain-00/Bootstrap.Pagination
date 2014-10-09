@@ -50,7 +50,7 @@ namespace Bootstrap.Pagination
             if ((JsonRequestBehavior == JsonRequestBehavior.DenyGet)
                 && (string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase)))
             {
-                throw new InvalidOperationException("改方法当前不允许使用Get");
+                throw new InvalidOperationException("该方法当前不允许使用Get");
             }
             var response = context.HttpContext.Response;
             response.ContentType = !string.IsNullOrEmpty(ContentType) ? ContentType : "application/json";

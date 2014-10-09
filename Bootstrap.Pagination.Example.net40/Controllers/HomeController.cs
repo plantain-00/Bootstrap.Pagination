@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 
-using Newtonsoft.Json;
-
 namespace Bootstrap.Pagination.Example.net40.Controllers
 {
     public class HomeController : Controller
     {
         private readonly int[] _list;
+
         public HomeController()
         {
             _list = new int[123];
@@ -16,6 +15,7 @@ namespace Bootstrap.Pagination.Example.net40.Controllers
                 _list[i] = i + 1;
             }
         }
+
         public ActionResult Index()
         {
             var page = Request.QueryInt32("page");
@@ -25,6 +25,7 @@ namespace Bootstrap.Pagination.Example.net40.Controllers
             ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
             return View();
         }
+
         public ActionResult GetPagination()
         {
             var page = Request.QueryInt32("page");
@@ -32,41 +33,37 @@ namespace Bootstrap.Pagination.Example.net40.Controllers
             var pagination = new Pagination(123, page);
             ViewData["pagination"] = pagination;
             ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
-            var json = JsonConvert.SerializeObject(new
-                                                   {
-                                                       pagination = this.PartialViewToString("Pagination"),
-                                                       data = this.PartialViewToString("DataList")
-                                                   });
-            return new JsonResult
-                   {
-                       Data = json,
-                       JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                   };
+            return this.NewtonJson(new
+                                   {
+                                       pagination = this.PartialViewToString("Pagination"),
+                                       data = this.PartialViewToString("DataList")
+                                   },
+                                   JsonRequestBehavior.AllowGet);
         }
+
         public ActionResult PagerIndex()
         {
             var page = Request.QueryInt32("page");
+            var skipped = Pager.GetSkipped(page);
             var pager = new Pager(123, page);
             ViewData["pager"] = pager;
-            ViewData["data"] = _list.Skip(pager.Skipped).Take(10).ToArray();
+            ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
             return View();
         }
+
         public ActionResult GetPager()
         {
             var page = Request.QueryInt32("page");
             var pager = new Pager(123, page);
             ViewData["pager"] = pager;
-            ViewData["data"] = _list.Skip(pager.Skipped).Take(10).ToArray();
-            var json = JsonConvert.SerializeObject(new
-                                                   {
-                                                       pager = this.PartialViewToString("Pager"),
-                                                       data = this.PartialViewToString("DataList")
-                                                   });
-            return new JsonResult
-                   {
-                       Data = json,
-                       JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                   };
+            var skipped = Pager.GetSkipped(page);
+            ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
+            return this.NewtonJson(new
+                                   {
+                                       pager = this.PartialViewToString("Pager"),
+                                       data = this.PartialViewToString("DataList")
+                                   },
+                                   JsonRequestBehavior.AllowGet);
         }
     }
 }

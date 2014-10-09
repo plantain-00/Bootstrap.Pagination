@@ -89,16 +89,12 @@ pagination
         var pagination = new Pagination(123, page);
         ViewData["pagination"] = pagination;
         ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
-        var json = JsonConvert.SerializeObject(new
-                                                {
-                                                    pagination = this.PartialViewToString("Pagination"),
-                                                    data = this.PartialViewToString("DataList")
-                                                });
-        return new JsonResult
-                {
-                    Data = json,
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                };
+        return this.NewtonJson(new
+                               {
+                                   pagination = this.PartialViewToString("Pagination"),
+                                   data = this.PartialViewToString("DataList")
+                               },
+                               JsonRequestBehavior.AllowGet);
     }
 ### View
     <div id="data">
@@ -113,8 +109,7 @@ pagination
         function navigateTo(page, group) {
             $.getJSON("@Url.Action("GetPagination")", {
                 page : page
-            }, function(data) {
-                var json = eval('(' + data + ')');
+            }, function(json) {
                 $("#pagination").html(json.pagination);
                 $("#data").html(json.data);
             });
@@ -128,27 +123,25 @@ pager
     public ActionResult PagerIndex()
     {
         var page = Request.QueryInt32("page");
+        var skipped = Pager.GetSkipped(page);
         var pager = new Pager(123, page);
         ViewData["pager"] = pager;
-        ViewData["data"] = _list.Skip(pager.Skipped).Take(10).ToArray();
+        ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         return View();
     }
     public ActionResult GetPager()
     {
         var page = Request.QueryInt32("page");
+        var skipped = Pager.GetSkipped(page);
         var pager = new Pager(123, page);
         ViewData["pager"] = pager;
-        ViewData["data"] = _list.Skip(pager.Skipped).Take(10).ToArray();
-        var json = JsonConvert.SerializeObject(new
-                                                {
-                                                    pager = this.PartialViewToString("Pager"),
-                                                    data = this.PartialViewToString("DataList")
-                                                });
-        return new JsonResult
-                {
-                    Data = json,
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                };
+        ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
+        return this.NewtonJson(new
+                               {
+                                   pager = this.PartialViewToString("Pager"),
+                                   data = this.PartialViewToString("DataList")
+                               },
+                               JsonRequestBehavior.AllowGet);
     }
 ### View
     <div id="data">
@@ -163,8 +156,7 @@ pager
         function navigateTo(page) {
             $.getJSON("@Url.Action("GetPager")", {
                 page : page
-            }, function(data) {
-                var json = eval('(' + data + ')');
+            }, function(json) {
                 $("#pager").html(json.pager);
                 $("#data").html(json.data);
             });

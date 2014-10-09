@@ -24,8 +24,7 @@
             function navigateTo(page) {
                 $.getJSON("@Url.Action("GetPager")", {
                     page : page
-                }, function(data) {
-                    var json = eval('(' + data + ')');
+                }, function(json) {
                     $("#pager").html(json.pager);
                     $("#data").html(json.data);
                 });
