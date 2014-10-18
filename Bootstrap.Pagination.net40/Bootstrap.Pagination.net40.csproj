@@ -49,6 +49,8 @@
     <None Include="Views\Shared\Pager.cshtml" />
     <Compile Include="ControllerExtension.cs" />
     <Compile Include="HttpRequestBaseExtension.cs" />
+    <Compile Include="JObjectExtension.cs" />
+    <Compile Include="JsonDeserializationException.cs" />
     <Compile Include="NewtonJsonResult.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="Pagination.cs" />
