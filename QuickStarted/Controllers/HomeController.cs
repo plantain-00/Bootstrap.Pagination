@@ -21,7 +21,7 @@ namespace QuickStarted.Controllers
                 _list[i] = i + 1;
             }
             var jObject = JObject.Parse("{\"name\":\"test\",\"age\":12}");
-            var name = jObject.Get<string>("name");
+            var name = jObject.Get("name");
             var age = jObject.Get<int>("age");
         }
 

@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Bootstrap.Pagination.net40\HttpRequestBaseExtension.cs" />
-	<Compile Include="..\Bootstrap.Pagination.net40\JObjectExtension.cs" />
+	<Compile Include="..\Bootstrap.Pagination.net40\JTokenExtension.cs" />
 	<Compile Include="..\Bootstrap.Pagination.net40\JsonDeserializationException.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Pager.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\Pagination.cs" />
