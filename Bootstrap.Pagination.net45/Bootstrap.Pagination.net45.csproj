@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Bootstrap.Pagination.net40\CommandResult.cs" />
+    <Compile Include="..\Bootstrap.Pagination.net40\QueryResult.cs" />
+    <Compile Include="..\Bootstrap.Pagination.net40\RouteExtension\RouteValueDictionaryExtension.cs" />
+    <Compile Include="..\Bootstrap.Pagination.net40\RouteExtension\StringExtension.cs" />
     <Compile Include="..\Bootstrap.Pagination.net40\HttpRequestBaseExtension.cs" />
 	<Compile Include="..\Bootstrap.Pagination.net40\JTokenExtension.cs" />
 	<Compile Include="..\Bootstrap.Pagination.net40\JsonDeserializationException.cs" />

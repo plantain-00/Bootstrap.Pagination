@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandResult.cs" />
+    <Compile Include="QueryResult.cs" />
+    <Compile Include="RouteExtension\RouteValueDictionaryExtension.cs" />
+    <Compile Include="RouteExtension\StringExtension.cs" />
     <None Include="Views\Shared\Pager.cshtml" />
     <Compile Include="ControllerExtension.cs" />
     <Compile Include="HttpRequestBaseExtension.cs" />
