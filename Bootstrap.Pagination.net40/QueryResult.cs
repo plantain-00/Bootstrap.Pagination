@@ -14,12 +14,25 @@ namespace Bootstrap.Pagination
         /// <param name="isSuccess"></param>
         /// <param name="message"></param>
         /// <param name="exceptionMessage"></param>
-        public QueryResult(T value, bool isSuccess = true, string message = null, string exceptionMessage = null)
+        public QueryResult(bool isSuccess, T value, string message = null, string exceptionMessage = null)
         {
             IsSuccess = isSuccess;
             Message = message;
             ExceptionMessage = exceptionMessage;
             Value = value;
+        }
+
+        /// <summary>
+        ///     构造查询的结果模型
+        /// </summary>
+        /// <param name="isSuccess"></param>
+        /// <param name="message"></param>
+        /// <param name="exceptionMessage"></param>
+        public QueryResult(bool isSuccess, string message = null, string exceptionMessage = null)
+        {
+            IsSuccess = isSuccess;
+            Message = message;
+            ExceptionMessage = exceptionMessage;
         }
 
         /// <summary>
