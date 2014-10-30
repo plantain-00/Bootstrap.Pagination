@@ -40,14 +40,25 @@ namespace Bootstrap.Pagination
         }
 
         /// <summary>
-        ///     是否为null
+        ///     是否有此Key
         /// </summary>
         /// <param name="jToken"></param>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        public static bool IsNull(this JToken jToken, string propertyName)
+        public static bool HasKey(this JToken jToken, string propertyName)
         {
-            return jToken[propertyName] == null;
+            return jToken[propertyName] != null;
+        }
+
+        /// <summary>
+        ///     是否有为null
+        /// </summary>
+        /// <param name="jToken"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public static bool IsNotNull(this JToken jToken, string propertyName)
+        {
+            return jToken.Get(propertyName) != null;
         }
     }
 }
