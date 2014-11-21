@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net40", "Bootstrap.Pagination.net40\Bootstrap.Pagination.net40.csproj", "{424218C6-1101-4709-93A9-3A6A972A1837}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.Example.net40", "Bootstrap.Pagination.Example.net40\Bootstrap.Pagination.Example.net40.csproj", "{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net45", "Bootstrap.Pagination.net45\Bootstrap.Pagination.net45.csproj", "{11978C1D-E440-41F5-9F55-186BFE284DF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net451", "Bootstrap.Pagination.net451\Bootstrap.Pagination.net451.csproj", "{CE19C88F-B6A6-497E-BB2A-D8212E26F8E0}"
@@ -16,8 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net30", "Bootstrap.Pagination.net30\Bootstrap.Pagination.net30.csproj", "{11F791DA-C769-4BA9-AFD7-81BCFE2381EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.net20", "Bootstrap.Pagination.net20\Bootstrap.Pagination.net20.csproj", "{FEC84414-1481-41A8-99F4-ACE8337E947A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap.Pagination.Example.net35", "Bootstrap.Pagination.Example.net35\Bootstrap.Pagination.Example.net35.csproj", "{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStarted", "QuickStarted\QuickStarted.csproj", "{9D4EBF35-0E4E-4682-B768-453D751675FC}"
 EndProject
@@ -31,10 +27,6 @@ Global
 		{424218C6-1101-4709-93A9-3A6A972A1837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{424218C6-1101-4709-93A9-3A6A972A1837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{424218C6-1101-4709-93A9-3A6A972A1837}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAF0F074-DBF2-4BEA-A299-CE2F744621A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11978C1D-E440-41F5-9F55-186BFE284DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11978C1D-E440-41F5-9F55-186BFE284DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11978C1D-E440-41F5-9F55-186BFE284DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,10 +47,6 @@ Global
 		{FEC84414-1481-41A8-99F4-ACE8337E947A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEC84414-1481-41A8-99F4-ACE8337E947A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEC84414-1481-41A8-99F4-ACE8337E947A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2AB7105-9438-41FE-A70E-4ACD43F1DDDA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D4EBF35-0E4E-4682-B768-453D751675FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D4EBF35-0E4E-4682-B768-453D751675FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D4EBF35-0E4E-4682-B768-453D751675FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
