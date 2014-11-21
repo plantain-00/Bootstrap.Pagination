@@ -58,7 +58,7 @@ namespace Bootstrap.Pagination
         /// <returns></returns>
         public static bool IsNotNull(this JToken jToken, string propertyName)
         {
-            return jToken.Get(propertyName) != null;
+            return jToken.HasKey(propertyName) && jToken.Get(propertyName) != null;
         }
     }
 }
