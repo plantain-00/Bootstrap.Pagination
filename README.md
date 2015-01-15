@@ -17,18 +17,16 @@ Get Started
         }
     }
 
-    public ActionResult Index()
+    public ActionResult Index(int page = 1)
     {
-        var page = Request.QueryInt32("page");
         var skipped = Pagination.GetSkipped(page);
         ViewData["pagination"] = new Pagination(_list.Length, page);
         ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         return View();
     }
 
-    public ActionResult List()
+    public ActionResult List(int page = 1)
     {
-        var page = Request.QueryInt32("page");
         var skipped = Pagination.GetSkipped(page);
         ViewData["pagination"] = new Pagination(_list.Length, page);
         ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
@@ -70,24 +68,21 @@ Get Started
     </ul>
     @Html.Partial("Pagination")
 
-pagination
+
+example for pagination
 --------------------
 ### Controller
-    public ActionResult Index()
+    public ActionResult Index(int page = 1)
     {
-        var page = Request.QueryInt32("page");
-        var pagination = new Pagination(123, page);
         var skipped = Pagination.GetSkipped(page);
-        ViewData["pagination"] = pagination;
+        ViewData["pagination"] = new Pagination(123, page);
         ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         return View();
     }
-    public ActionResult GetPagination()
+    public ActionResult GetPagination(int page = 1)
     {
-        var page = Request.QueryInt32("page");
         var skipped = Pagination.GetSkipped(page);
-        var pagination = new Pagination(123, page);
-        ViewData["pagination"] = pagination;
+        ViewData["pagination"] = new Pagination(123, page);
         ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         return this.NewtonJson(new
                                {
@@ -117,24 +112,20 @@ pagination
     </script>
 ![](https://raw.githubusercontent.com/plantain-00/Bootstrap.Pagination/master/images/Pagination-Example.JPG)
 
-pager
+example for pager
 --------------------
 ### Controller
-    public ActionResult PagerIndex()
+    public ActionResult PagerIndex(int page = 1)
     {
-        var page = Request.QueryInt32("page");
         var skipped = Pager.GetSkipped(page);
-        var pager = new Pager(123, page);
-        ViewData["pager"] = pager;
+        ViewData["pager"] = new Pager(123, page);
         ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         return View();
     }
-    public ActionResult GetPager()
+    public ActionResult GetPager(int page = 1)
     {
-        var page = Request.QueryInt32("page");
         var skipped = Pager.GetSkipped(page);
-        var pager = new Pager(123, page);
-        ViewData["pager"] = pager;
+        ViewData["pager"] = new Pager(123, page);
         ViewData["data"] = _list.Skip(skipped).Take(10).ToArray();
         return this.NewtonJson(new
                                {
