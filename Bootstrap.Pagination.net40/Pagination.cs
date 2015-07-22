@@ -65,111 +65,73 @@ namespace Bootstrap.Pagination
         /// <summary>
         ///     总组数
         /// </summary>
-        public int TotalGroups { get; private set; }
+        public int TotalGroups { get; }
 
         /// <summary>
         ///     每页的条数
         /// </summary>
-        public int ItemsPerPage { get; private set; }
+        public int ItemsPerPage { get; }
 
         /// <summary>
         ///     最后一组的页数
         /// </summary>
-        public int PagesOfLastGroup { get; private set; }
+        public int PagesOfLastGroup { get; }
 
         /// <summary>
         ///     当前页，从1开始
         /// </summary>
-        public int Page { get; private set; }
+        public int Page { get; }
 
         /// <summary>
         ///     每组的页数
         /// </summary>
-        public int PagesPerGroup { get; private set; }
+        public int PagesPerGroup { get; }
 
         /// <summary>
         ///     当前组，从1开始
         /// </summary>
-        public int Group { get; private set; }
+        public int Group { get; }
 
         /// <summary>
         ///     当前页中，由从0开始的条的索引，应该Skip这些数目条数据
         /// </summary>
         /// <returns></returns>
         [Obsolete]
-        public int Skipped
-        {
-            get
-            {
-                return ItemsPerPage * (Page - 1 + PagesPerGroup * (Group - 1));
-            }
-        }
+        public int Skipped => ItemsPerPage * (Page - 1 + PagesPerGroup * (Group - 1));
 
         /// <summary>
         ///     是否是第一组
         /// </summary>
         /// <returns></returns>
-        public bool IsFirstGroup
-        {
-            get
-            {
-                return Group == 1;
-            }
-        }
+        public bool IsFirstGroup => Group == 1;
+
         /// <summary>
         ///     是否是最后一组
         /// </summary>
         /// <returns></returns>
-        public bool IsLastGroup
-        {
-            get
-            {
-                return Group == TotalGroups;
-            }
-        }
+        public bool IsLastGroup => Group == TotalGroups;
+
         /// <summary>
         ///     当前组的页数
         /// </summary>
         /// <returns></returns>
-        public int CurrentPageCount
-        {
-            get
-            {
-                return IsLastGroup ? PagesOfLastGroup : PagesPerGroup;
-            }
-        }
+        public int CurrentPageCount => IsLastGroup ? PagesOfLastGroup : PagesPerGroup;
 
         /// <summary>
         ///     当前页
         /// </summary>
         /// <returns></returns>
-        public int CurrentPage
-        {
-            get
-            {
-                return Page + PagesPerGroup * (Group - 1);
-            }
-        }
+        public int CurrentPage => Page + PagesPerGroup * (Group - 1);
+
         /// <summary>
         ///     上一组所在页
         /// </summary>
-        public int LastGroup
-        {
-            get
-            {
-                return PagesPerGroup + PagesPerGroup * (Group - 1 - 1);
-            }
-        }
+        public int LastGroup => PagesPerGroup + PagesPerGroup * (Group - 1 - 1);
+
         /// <summary>
         ///     下一组所在页
         /// </summary>
-        public int NextGroup
-        {
-            get
-            {
-                return 1 + PagesPerGroup * (Group + 1 - 1);
-            }
-        }
+        public int NextGroup => 1 + PagesPerGroup * (Group + 1 - 1);
 
         /// <summary>
         ///     当前页中，由从0开始的条的索引，应该Skip这些数目条数据

@@ -45,7 +45,7 @@ namespace Bootstrap.Pagination
         {
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
             if ((JsonRequestBehavior == JsonRequestBehavior.DenyGet)
                 && (string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase)))

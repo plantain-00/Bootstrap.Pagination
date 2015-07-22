@@ -23,52 +23,36 @@ namespace Bootstrap.Pagination
         /// <summary>
         ///     每页的条数
         /// </summary>
-        public int ItemsPerPage { get; private set; }
+        public int ItemsPerPage { get; }
 
         /// <summary>
         ///     总页数
         /// </summary>
-        public int TotalPages { get; private set; }
+        public int TotalPages { get; }
 
         /// <summary>
         ///     当前页,从1开始
         /// </summary>
-        public int Page { get; private set; }
+        public int Page { get; }
 
         /// <summary>
         ///     是否是第1页
         /// </summary>
         /// <returns></returns>
-        public bool IsFirstPage
-        {
-            get
-            {
-                return Page == 1;
-            }
-        }
+        public bool IsFirstPage => Page == 1;
+
         /// <summary>
         ///     是否是最后1页
         /// </summary>
         /// <returns></returns>
-        public bool IsLastPage
-        {
-            get
-            {
-                return Page == TotalPages;
-            }
-        }
+        public bool IsLastPage => Page == TotalPages;
+
         /// <summary>
         ///     当前页中，由从0开始的条的索引，应该Skip这些数目条数据
         /// </summary>
         /// <returns></returns>
         [Obsolete]
-        public int Skipped
-        {
-            get
-            {
-                return ItemsPerPage * (Page - 1);
-            }
-        }
+        public int Skipped => ItemsPerPage * (Page - 1);
 
         /// <summary>
         ///     当前页中，由从0开始的条的索引，应该Skip这些数目条数据
